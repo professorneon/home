@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POST #3 – Pentesting Nədir? Dərin İzah</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+    }
+    h1, h2 {
+      color: #ff0033;
+      text-shadow: 0 0 15px red;
+    }
+    .post-container {
+      background: #111;
+      padding: 30px;
+      border-left: 5px solid #ff0033;
+      box-shadow: 0 0 25px #ff0033;
+    }
+    .meta {
+      color: #999;
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+    .code-block {
+      background: #000;
+      color: #00ff00;
+      padding: 15px;
+      margin: 20px 0;
+      border: 1px solid #333;
+      font-size: 0.9em;
+      overflow-x: auto;
+    }
+    a {
+      color: #ff0044;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="post-container">
+    <h1>🛡️ Pentesting (Penetrasiya Testi) – Sistemlərin Təhlükəsizlik Dərin Analizi</h1>
+    <p class="meta">Yazan: <strong>ISKOPISIX</strong> | Tarix: 07.06.2025 | Qovluq: <em>Kibertəhlükəsizlik / Test & Analiz</em></p>
+
+    <h2>🔍 Pentesting nədir?</h2>
+    <p>
+        Penetrasiya testi, yəni pentesting, informasiya təhlükəsizliyi sahəsində kritik əhəmiyyətə malik olan sistemli və metodik bir prosesdir. Bu test, müxtəlif növ sistemlərin — o cümlədən şəbəkələrin, proqram tətbiqlərinin, serverlərin və digər infrastruktur elementlərinin zəifliklərini aşkar etmək məqsədilə həyata keçirilir. Pentestingdə istifadə olunan əsas yanaşma, etik hakerlik prinsiplərinə əsaslanır və test aparan şəxslər real hücumçular kimi davranaraq sistemin müdafiə qabiliyyətini yoxlayırlar.
+
+        Pentestin əsas məqsədi, mövcud təhlükəsizlik boşluqlarını öncədən müəyyən etməkdir. Bu boşluqlar kiberhücumlar zamanı zərərli şəxslər tərəfindən istifadə edilə bilər və nəticədə məlumatların oğurlanması, xidmətlərin dayandırılması, ya da sistemin bütövlüyünün pozulması kimi ciddi fəsadlara səbəb ola bilər. Pentesterlər bu boşluqları aşkar etdikdən sonra, onları necə aradan qaldırmaq barədə tövsiyələr təqdim edir və beləliklə təşkilatların təhlükəsizlik səviyyəsini artırmağa kömək edir.
+        
+        Pentest prosesi müxtəlif mərhələlərdən ibarətdir: əvvəlcə məlumat toplama və kəşfiyyat mərhələsi həyata keçirilir, bu mərhələdə sistem barədə mümkün qədər çox məlumat toplanır. Sonra zəifliklərin analiz və aşkar edilməsi mərhələsi gəlir. Bu mərhələdə avtomatlaşdırılmış alətlər və manual üsullar birgə tətbiq olunur. Daha sonra zəifliklərdən istifadə etmə mərhələsi (exploitation) baş verir, burada aşkar edilmiş boşluqların real təhlükə yarada biləcəyi yoxlanılır. Nəhayət, nəticələr sənədləşdirilir və təhlil edilir, təşkilata zəifliklər barədə hesabat verilir.
+        
+        Pentesting həm hüquqi, həm də etik normalara uyğun şəkildə aparılmalıdır. Əks halda, qanunsuz fəaliyyət sayılır və cəzai məsuliyyətə səbəb ola bilər. Bu səbəbdən pentesting peşəkarlar tərəfindən, müvafiq icazə və müqavilə əsasında həyata keçirilir.
+        
+        Nəticədə, pentesting təşkilatlara sistemlərini hücumlara qarşı daha davamlı etmək, məlumatlarını və resurslarını qorumaq və kibertəhlükəsizlik səviyyəsini yüksəltmək üçün vacib bir vasitədir.
+    </p>
+
+    <h2>⚙️ Pentesting-in əhəmiyyəti</h2>
+    <p>
+      Müasir rəqəmsal dünyada kiberhücumlar artmaqda davam edir və şirkətlərin, qurumların kritik məlumatları və sistemləri hücumlara qarşı həssasdır. 
+      Pentesting aşağıdakı səbəblərdən çox vacibdir:
+    </p>
+    <ul>
+      <li>Zəifliklərin erkən aşkar edilməsi və aradan qaldırılması.</li>
+      <li>Qarşı tərəfin – real hücumçuların istifadə edə biləcəyi zəif nöqtələrin tapılması.</li>
+      <li>Qurumların təhlükəsizlik səviyyəsinin artırılması və məlumatların qorunması.</li>
+      <li>Regulyasiya tələblərinə uyğunluğun təmin edilməsi.</li>
+      <li>İşçilərin təhlükəsizlik maarifləndirilməsi və proseslərin təkmilləşdirilməsi.</li>
+    </ul>
+
+    <h2>💡 Pentesting Növ və Tipləri</h2>
+    <p>Pentesting müxtəlif növlərdə həyata keçirilir:</p>
+    <ul>
+      <li><strong>Black Box Testing:</strong> Hücumçunun sistem haqqında heç bir məlumatı olmadan həyata keçirilir. Hədəf yalnız açıq informasiya və test vasitəsilə kəşf olunur.</li>
+      <li><strong>White Box Testing:</strong> Testçi sistemə tam daxilolma hüququ və sənədləşmə ilə təchiz olunur, dərin təhlil və zəiflik aşkarlanması üçün.</li>
+      <li><strong>Gray Box Testing:</strong> Hər iki yanaşmanın qarışığıdır, məhdud daxilolma hüquqları ilə test həyata keçirilir.</li>
+    </ul>
+
+    <h2>🔧 Pentesting Mərhələləri</h2>
+    <ol>
+      <li><strong>Planlaşdırma və Kəşfiyyat:</strong> Məqsəd, şəbəkə və sistem haqqında məlumat toplamaq, IP-lər, domenlər, açıq portlar, xidmətlər və istifadə olunan proqram təminatını aşkar etmək.</li>
+      <li><strong>Zəiflik Analizi:</strong> Toplanmış məlumatlar əsasında zəifliklər üçün avtomatlaşdırılmış və manual alətlərlə yoxlama aparılır.</li>
+      <li><strong>İstismar (Exploitation):</strong> Aşkar edilmiş zəifliklərdən istifadə edərək sistemə giriş cəhdləri edilir, real hücum simulyasiyası həyata keçirilir.</li>
+      <li><strong>Post-Exploitation:</strong> Sistemdə əldə edilmiş girişi möhkəmləndirmək, digər resurslara keçid əldə etmək, məlumat toplamaq.</li>
+      <li><strong>Hesabat və Tövsiyələr:</strong> Tapılan zəifliklər, risklər və təklif olunan müdafiə tədbirləri barədə ətraflı hesabat hazırlanır.</li>
+    </ol>
+
+    <h2>🛠️ Pentesting üçün istifadə olunan alətlər</h2>
+    <p>Pentesterlər müxtəlif alətlərdən istifadə edir:</p>
+    <ul>
+      <li><strong>Nmap:</strong> Şəbəkə kəşfiyyatı və port skanlaması üçün.</li>
+      <li><strong>Metasploit Framework:</strong> İstismar və exploit testləri üçün geniş istifadə olunur.</li>
+      <li><strong>Burp Suite:</strong> Veb tətbiq zəifliklərinin aşkarlanması və test üçün.</li>
+      <li><strong>Wireshark:</strong> Şəbəkə trafikinin analiz edilməsi üçün.</li>
+      <li><strong>John the Ripper / Hashcat:</strong> Parol cracking alətləri.</li>
+      <li><strong>SQLmap:</strong> SQL Injection aşkarlanması və istismarı üçün.</li>
+    </ul>
+
+    <h2>🧠 Pentesting ilə əlaqəli əsas anlayışlar</h2>
+    <ul>
+      <li><strong>Zero-day:</strong> Hələ rəsmi patch çıxarılmamış, məlum olmayan zəifliklər.</li>
+      <li><strong>Exploit:</strong> Zəiflikdən istifadə edərək sistemə müdaxilə edən kod və ya proqram.</li>
+      <li><strong>Social Engineering:</strong> İnsan faktorunu hədəfləyən hücum üsulları, məsələn, phishing.</li>
+      <li><strong>Privilege Escalation:</strong> Aşağı səviyyəli istifadəçi hüquqlarından yüksək səviyyəyə keçid əldə etmək.</li>
+    </ul>
+
+    <h2>📋 Misal: Sadə bir Nmap Skanı</h2>
+    <div class="code-block">
+<pre>
+nmap -sS -sV -A 192.168.100.8
+</pre>
+    </div>
+    <p>Bu əmr hədəf sistemdə açıq portları, xidmət versiyalarını və mümkün zəiflikləri tapmaq üçün istifadə edilir.</p>
+
+    <h2>⚠️ Etik və Hüquqi Məsələlər</h2>
+    <p>
+      Pentesting etik və hüquqi qaydalara riayət etməyi tələb edir. İcazəsiz pentest hücum hesab olunur və qanuni məsuliyyət yarada bilər. Buna görə də, pentesting yalnız müvafiq razılıq və icazə ilə həyata keçirilməlidir.
+    </p>
+
+    <h2>🚀 Nəticə</h2>
+    <p>
+      Pentesting, təşkilatların təhlükəsizlik səviyyəsini artırmaq üçün ən effektiv üsullardan biridir. Müasir kibertəhlükəsizlik mühitində, sistemlərin zəif tərəflərinin öncədən aşkarlanması və aradan qaldırılması vacibdir. Bu, həm real hücumların qarşısını almağa, həm də məlumat və infrastrukturun qorunmasına yardım edir.
+    </p>
+
+    <p><a href="index.html">← Geri Qayıt</a></p>
+  </div>
+</body>
+</html>

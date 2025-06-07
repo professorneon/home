@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POST #4 – Deep Web Nədir? Dərin və Texniki İzah</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+    }
+    h1, h2 {
+      color: #ff0033;
+      text-shadow: 0 0 15px red;
+    }
+    .post-container {
+      background: #111;
+      padding: 30px;
+      border-left: 5px solid #ff0033;
+      box-shadow: 0 0 25px #ff0033;
+    }
+    .meta {
+      color: #999;
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+    .code-block {
+      background: #000;
+      color: #00ff00;
+      padding: 15px;
+      margin: 20px 0;
+      border: 1px solid #333;
+      font-size: 0.9em;
+      overflow-x: auto;
+    }
+    a {
+      color: #ff0044;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="post-container">
+    <h1>🌌 Deep Web nədir? – İnternetin Görünməyən Üzünə Dərin Baxış</h1>
+    <p class="meta">Yazan: <strong>ISKOPISIX</strong> | Tarix: 07.06.2025 | Qovluq: <em>Kibertəhlükəsizlik / Dərin Veb</em></p>
+
+    <h2>🌐 Deep Web anlayışı</h2>
+    <p>
+      Deep Web (Dərin Veb) – internetin standart axtarış motorları (Google, Bing və s.) tərəfindən indekslənməyən hissəsidir. Burada yerləşən məzmunlar xüsusi giriş və ya autentifikasiya tələb edir və adi yollarla tapıla bilməz. Buraya akademik verilənlər bazaları, dövlət sənədləri, bank sistemləri, tibb məlumatları, abunəlik arxasında olan saytlardakı məzmun və korporativ daxili sistemlər daxildir.
+    </p>
+
+    <h2>🧱 Deep Web ≠ Dark Web</h2>
+    <p>
+      <strong>Qarışdırılmamalıdır:</strong> Deep Web geniş və legitim məzmunu əhatə edən sahədir. Onun kiçik bir hissəsi isə **Dark Web** adlanır – anonimlik və xüsusi alətlər (Tor, I2P) vasitəsilə daxil olunan, tez-tez qeyri-qanuni fəaliyyətlərlə əlaqəli olan qapalı sistemdir. Yəni, bütün Dark Web Deep Web-in içindədir, lakin bütün Deep Web Dark Web deyil.
+    </p>
+
+    <h2>🔐 Deep Web-ə daxil olan sistemlər</h2>
+    <ul>
+      <li>Bank hesabları, ödəniş sistemləri və elektron kommersiya panelləri.</li>
+      <li>Universitet və tədqiqat bazaları (JSTOR, IEEE, SpringerLink və s.).</li>
+      <li>Şəxsi e-poçt və istifadəçi profilləri.</li>
+      <li>Dövlət portalları və elektron hökumət sistemləri.</li>
+      <li>Korporativ intranet və daxili sənədlər bazaları.</li>
+    </ul>
+
+    <h2>🛠️ Texniki baxımdan Deep Web</h2>
+    <p>
+      Deep Web-ə daxil olan məlumatlar əsasən aşağıdakı səbəblərə görə indekslənmir:
+    </p>
+    <ul>
+      <li><strong>Robots.txt:</strong> Saytın indekslənməsini məhdudlaşdırmaq üçün istifadə olunur.</li>
+      <li><strong>Dinamik səhifələr:</strong> Form vasitəsilə əldə edilən məlumatlar (məsələn, axtarış nəticələri).</li>
+      <li><strong>Şəxsi giriş:</strong> Şifrə və autentifikasiya tələb edən məzmunlar.</li>
+      <li><strong>API ilə qorunan sistemlər:</strong> Məlumatların RESTful və ya SOAP servislər vasitəsilə təqdim edildiyi sistemlər.</li>
+    </ul>
+
+    <h2>🧠 Deep Web-in əhəmiyyəti</h2>
+    <p>
+      Deep Web kritik informasiya sistemlərinin qorunması və şəxsi məlumatların təhlükəsiz saxlanılması üçün vacib infrastruktur yaradır. Tədqiqatçılar, jurnalistlər, təhlükəsizlik mütəxəssisləri və dövlət qurumları üçün dəyərli informasiya mənbəyidir.
+    </p>
+
+    <h2>🔎 Misal: JSTOR axtarış nəticələri</h2>
+    <div class="code-block">
+<pre>
+https://www.jstor.org/action/doBasicSearch?Query=Cyber+Security
+</pre>
+    </div>
+    <p>Bu linkə yalnız autentifikasiya və ya abunəliklə daxil olmaq mümkündür – bu səbəbdən axtarış motorları bu səhifəni indeksləmir.</p>
+
+    <h2>⚠️ Etik və Hüquqi Mövqelər</h2>
+    <p>
+      Deep Web-ə daxil olmaq ümumiyyətlə qanunidir, lakin buradakı məlumatlara icazəsiz giriş kibercinayətkarlıq sayılır. Məlumatlara daxil olarkən etik və hüquqi çərçivələrə əməl olunmalıdır.
+    </p>
+
+    <h2>🧩 Deep Web Qatları və Texniki Xüsusiyyətləri</h2>
+<table style="width:100%; border-collapse: collapse; color: #00ff00;">
+  <thead>
+    <tr style="background-color: #222;">
+      <th style="border: 1px solid #444; padding: 10px;">Qat</th>
+      <th style="border: 1px solid #444; padding: 10px;">Təsviri</th>
+      <th style="border: 1px solid #444; padding: 10px;">Təhlükə səviyyəsi</th>
+      <th style="border: 1px solid #444; padding: 10px;">Bayt/Məlumat Ölçüsü</th>
+      <th style="border: 1px solid #444; padding: 10px;">Giriş üsulu/link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #444; padding: 10px;">1. Surface Web</td>
+      <td style="border: 1px solid #444; padding: 10px;">Google, Wikipedia, News və s. açıq saytlar</td>
+      <td style="border: 1px solid #444; padding: 10px;">🔓 Aşağı</td>
+      <td style="border: 1px solid #444; padding: 10px;">~1% (təqribən 20 TB)</td>
+      <td style="border: 1px solid #444; padding: 10px;">http://example.com</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #444; padding: 10px;">2. Bergie Web</td>
+      <td style="border: 1px solid #444; padding: 10px;">Robots.txt ilə bloklanmış, lakin giriş açıqdır</td>
+      <td style="border: 1px solid #444; padding: 10px;">🟡 Orta</td>
+      <td style="border: 1px solid #444; padding: 10px;">~2-4%</td>
+      <td style="border: 1px solid #444; padding: 10px;">http://example.com/hidden</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #444; padding: 10px;">3. Deep Web</td>
+      <td style="border: 1px solid #444; padding: 10px;">Şəxsi məlumatlar, dövlət məlumat bazaları, bank sistemləri</td>
+      <td style="border: 1px solid #444; padding: 10px;">🟠 Orta-Yüksək</td>
+      <td style="border: 1px solid #444; padding: 10px;">~90% (təqribən 7 ZB+)</td>
+      <td style="border: 1px solid #444; padding: 10px;">http://h7y2b3323772dbb22h2ee2.onion</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #444; padding: 10px;">4. Charter Web</td>
+      <td style="border: 1px solid #444; padding: 10px;">Hökumət agentlikləri və hərbi məlumatlar</td>
+      <td style="border: 1px solid #444; padding: 10px;">🔴 Yüksək</td>
+      <td style="border: 1px solid #444; padding: 10px;">Gizli (Petabaytlarla)</td>
+      <td style="border: 1px solid #444; padding: 10px;">VPN + Token ilə giriş</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #444; padding: 10px;">5. Dark Web</td>
+      <td style="border: 1px solid #444; padding: 10px;">Anonim şəbəkələr (.onion saytlar), bazarlar, forumlar</td>
+      <td style="border: 1px solid #444; padding: 10px;">⚫ Yüksək və Qeyri-qanuni</td>
+      <td style="border: 1px solid #444; padding: 10px;">~0.1% (Terabaytlarla)</td>
+      <td style="border: 1px solid #444; padding: 10px;">http://server66672gw72222733ggd277d.onion</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #444; padding: 10px;">6. Mariana Web</td>
+      <td style="border: 1px solid #444; padding: 10px;">Tez-tez miflərlə əlaqələndirilir, əfsanəvi qat</td>
+      <td style="border: 1px solid #444; padding: 10px;">💀 Əfsanəvi/Qeyri-mümkün</td>
+      <td style="border: 1px solid #444; padding: 10px;">Naməlum</td>
+      <td style="border: 1px solid #444; padding: 10px;">Yoxdur – real deyil</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>🔍 Deep Web və Dark Web üçün Axtarış Motorları</h2>
+<table style="width:100%; border-collapse: collapse; color: #00ff00;">
+  <thead>
+    <tr style="background-color: #222;">
+      <th style="border: 1px solid #444; padding: 10px;">Axtarış Motoru</th>
+      <th style="border: 1px solid #444; padding: 10px;">Təsviri</th>
+      <th style="border: 1px solid #444; padding: 10px;">Giriş Linki</th>
+      <th style="border: 1px solid #444; padding: 10px;">Səviyyə</th>
+      <th style="border: 1px solid #444; padding: 10px;">Təhlükə səviyyəsi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #444; padding: 10px;">Ahmia</td>
+      <td style="border: 1px solid #444; padding: 10px;">.onion saytlarını indeksləyən təhlükəsiz və açıq mənbəli motor</td>
+      <td style="border: 1px solid #444; padding: 10px;">https://ahmia.fi</td>
+      <td style="border: 1px solid #444; padding: 10px;">Dark Web</td>
+      <td style="border: 1px solid #444; padding: 10px;">🟡 Orta</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #444; padding: 10px;">Torch</td>
+      <td style="border: 1px solid #444; padding: 10px;">Ən köhnə və sadə .onion axtarış motorlarından biri</td>
+      <td style="border: 1px solid #444; padding: 10px;">http://cnkj6nippubgycuj.onion</td>
+      <td style="border: 1px solid #444; padding: 10px;">Dark Web</td>
+      <td style="border: 1px solid #444; padding: 10px;">🔴 Yüksək</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #444; padding: 10px;">Not Evil</td>
+      <td style="border: 1px solid #444; padding: 10px;">Qanuni və qeyri-qanuni .onion saytlarını indeksləyir</td>
+      <td style="border: 1px solid #444; padding: 10px;">http://hss3uro2hsxfogfq.onion</td>
+      <td style="border: 1px solid #444; padding: 10px;">Dark Web</td>
+      <td style="border: 1px solid #444; padding: 10px;">🔴 Yüksək</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #444; padding: 10px;">Haystak</td>
+      <td style="border: 1px solid #444; padding: 10px;">Premium versiyası ilə 1M+ .onion səhifə indeksləyir</td>
+      <td style="border: 1px solid #444; padding: 10px;">http://haystakvxad7wbk5.onion</td>
+      <td style="border: 1px solid #444; padding: 10px;">Dark Web</td>
+      <td style="border: 1px solid #444; padding: 10px;">🔴 Yüksək</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #444; padding: 10px;">DuckDuckGo (Tor versiyası)</td>
+      <td style="border: 1px solid #444; padding: 10px;">Tor-da izlənilmədən axtarış imkanı verir</td>
+      <td style="border: 1px solid #444; padding: 10px;">http://3g2upl4pq6kufc4m.onion</td>
+      <td style="border: 1px solid #444; padding: 10px;">Surface + Deep</td>
+      <td style="border: 1px solid #444; padding: 10px;">🟢 Aşağı</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #444; padding: 10px;">Kilos</td>
+      <td style="border: 1px solid #444; padding: 10px;">Kriminal bazarları və istifadəçiləri indeksləyir</td>
+      <td style="border: 1px solid #444; padding: 10px;">http://kiloszpcvwhu7vfy.onion</td>
+      <td style="border: 1px solid #444; padding: 10px;">Dark Web</td>
+      <td style="border: 1px solid #444; padding: 10px;">☠️ Çox Yüksək</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>🌐 Deep Web ilə Surface Web fərqi</h2>
+  <table>
+    <tr>
+      <th>Qat</th>
+      <th>Adı</th>
+      <th>Təsvir</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><strong>Surface Web (Səthi Veb)</strong></td>
+      <td>Axtarış motorları tərəfindən indekslənmiş, ictimai şəkildə açıq olan veb saytlar (məsələn: Wikipedia, YouTube, CNN)</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Deep Web (Dərin Veb)</strong></td>
+      <td>İndekslənməmiş, giriş tələb edən, ancaq qanuni olan məlumatlar (akademik bazalar, dövlət portalları və s.)</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Dark Web (Qaranlıq Veb)</strong></td>
+      <td>Deep Web-in kiçik hissəsi, anonimlik və .onion domenləri ilə işləyən, tez-tez qeyri-qanuni fəaliyyətlərlə əlaqəli olan qat</td>
+    </tr>
+  </table>
+
+  <h2>📚 Deep Web-ə Daxil Olan Məzmun Növləri</h2>
+  <ul>
+    <li><strong>Akademik Verilənlər Bazaları</strong> – JSTOR, IEEE Xplore, SpringerLink</li>
+    <li><strong>Bank Sistemləri</strong> – Hesabatlar, əməliyyat tarixçələri</li>
+    <li><strong>Tibbi Məlumat Bazaları</strong> – EHR (Electronic Health Records)</li>
+    <li><strong>Dövlət və Hökumət Məlumatları</strong> – Vergi məlumatları, məhkəmə sənədləri</li>
+    <li><strong>Abunəliklə Açılan Saytlar</strong> – Netflix, Spotify və s.</li>
+    <li><strong>Şirkət İçi Sistemlər</strong> – VPN-lə qorunan daxili şəbəkələr</li>
+  </ul>
+
+  <h2>🔐 Niyə Axtarış Motorları Bunları Göstərmir?</h2>
+  <p>Axtarış motorlarının indeksləmə etməsi üçün müəyyən texniki şərtlər tələb olunur:</p>
+  <ul>
+    <li>Saytın <strong>ümumi girişə</strong> açıq olması</li>
+    <li><code>robots.txt</code> və sitemap icazəsinin olması</li>
+    <li>Statik və ya açıq link strukturları</li>
+  </ul>
+  <p>Amma Deep Web saytları isə:</p>
+  <ul>
+    <li>Parolla qorunur</li>
+    <li>Sessiyalara əsaslanır</li>
+    <li>Dinamik kontent yaradır</li>
+    <li><code>robots.txt</code> ilə indeksləmə qadağası var</li>
+  </ul>
+
+  <h2>🧠 Deep Web Texnologiyaları və Quruluşu</h2>
+  <h3>📌 Mühüm texnoloji komponentlər:</h3>
+  <ul>
+    <li>Login / Auth protokolları – OAuth, SSO, LDAP</li>
+    <li>SQL və NoSQL verilənlər bazaları</li>
+    <li>Session Cookies və JWT ilə autentifikasiya</li>
+    <li>Firewall və ACL-lər – IP və rol əsaslı icazələr</li>
+  </ul>
+
+  <h3>🧬 Entropiya və Gizlilik Təhlükəsizliyi:</h3>
+  <ul>
+    <li>Sessiya tokenləri: 128–512 bit</li>
+    <li>HTTPS və TLS ilə şifrələmə</li>
+    <li>URL formatı: <code>https://portal.gov.az/profile?id=39821&auth=abc123xyz</code></li>
+  </ul>
+
+  <h2>⚖️ Deep Web-in Hüquqi Statusu</h2>
+  <p>Deep Web-dəki məlumatlar əsasən <strong>qanuni və hüquqi</strong> çərçivədə qorunur. Misallar:</p>
+  <ul>
+    <li>Şəxsi məlumatların qorunması</li>
+    <li>Əqli mülkiyyət hüququ olan kontent</li>
+    <li>Tənzimlənən tibbi və maliyyə məlumatları</li>
+  </ul>
+
+  <h2>🔍 Deep Web-ə Giriş Necə Baş Verir?</h2>
+  <table>
+    <tr>
+      <th>Yanaşma</th>
+      <th>Təsvir</th>
+    </tr>
+    <tr>
+      <td>İstifadəçi adı/parol ilə giriş</td>
+      <td>Ənənəvi metod (Facebook, Gmail)</td>
+    </tr>
+    <tr>
+      <td>VPN və Korporativ girişlər</td>
+      <td>Şirkət daxili sistemlərə çıxış</td>
+    </tr>
+    <tr>
+      <td>Akademik/abunəlik əsaslı portallar</td>
+      <td>JSTOR, Coursera, Scopus</td>
+    </tr>
+    <tr>
+      <td>Dövlət portalları</td>
+      <td>e-Gov, vergi.gov.az</td>
+    </tr>
+  </table>
+
+  <h2>☠️ Deep Web və Dark Web-in Fərqləri</h2>
+  <table>
+    <tr>
+      <th>Cəhət</th>
+      <th>Deep Web</th>
+      <th>Dark Web</th>
+    </tr>
+    <tr>
+      <td>İndekslənmə</td>
+      <td>Xeyr</td>
+      <td>Xeyr</td>
+    </tr>
+    <tr>
+      <td>Qanunilik</td>
+      <td>Qanuni</td>
+      <td>Çox hallarda qeyri-qanuni</td>
+    </tr>
+    <tr>
+      <td>Giriş üsulu</td>
+      <td>Brauzer və login</td>
+      <td>Tor və .onion domenləri</td>
+    </tr>
+    <tr>
+      <td>İstifadə məqsədi</td>
+      <td>Qorunan məlumatlara çıxış</td>
+      <td>Anonimlik, bazarlar, forumlar</td>
+    </tr>
+    <tr>
+      <td>Misallar</td>
+      <td>Bank, EHR, e-Gov</td>
+      <td>Silk Road, Black Market</td>
+    </tr>
+  </table>
+
+
+    <h2>🚫 Dark Web ilə bağlı qısa qeyd</h2>
+    <p>
+      Dark Web əsasən anonimlik üçün yaradılmış Tor (The Onion Router) şəbəkəsində yerləşir. Qeyri-qanuni bazarlar, hack forumlar, qara bazar alqı-satqısı, istismar edilən məlumat bazaları burada yerləşə bilər. Dark Web istifadəçiləri üçün **VPN + Tor** istifadəsi minimum təhlükəsizlik tələbidir.
+    </p>
+
+    <h2>🛡️ Nəticə</h2>
+    <p>
+      Deep Web, internetin görünməyən, lakin həyatın çox önəmli hissəsini təşkil edən qatıdır. Onun dərk edilməsi müasir texnologiya və kibertəhlükəsizlik anlayışlarının ayrılmaz hissəsidir. İnformasiya təhlükəsizliyi, etik hacking və OSINT ilə məşğul olan şəxslər üçün Deep Web haqqında geniş bilik vacibdir.
+    </p>
+
+    <p><a href="index.html">← Geri Qayıt</a></p>
+  </div>
+</body>
+</html>

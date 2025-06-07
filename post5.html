@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POST #3 – Kernel Nədir? Dərin İzah</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+    }
+    h1, h2 {
+      color: #ff0033;
+      text-shadow: 0 0 15px red;
+    }
+    .post-container {
+      background: #111;
+      padding: 30px;
+      border-left: 5px solid #ff0033;
+      box-shadow: 0 0 25px #ff0033;
+    }
+    .meta {
+      color: #999;
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+    .code-block {
+      background: #000;
+      color: #00ff00;
+      padding: 15px;
+      margin: 20px 0;
+      border: 1px solid #333;
+      font-size: 0.9em;
+      overflow-x: auto;
+    }
+    a {
+      color: #ff0044;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="post-container">
+    <h1>💻 Kernel Nədir? Əməliyyat Sisteminin Ürəyinə Dərin Baxış</h1>
+    <p class="meta">Yazan: <strong>ISKOPISIX</strong> | Tarix: 07.06.2025 | Qovluq: <em>Əməliyyat Sistemləri / Kernel</em></p>
+
+    <h2>🔍 Kernel nədir?</h2>
+    <p>
+        Kernel — əməliyyat sisteminin əsas və ən vacib komponentidir. O, kompüterin aparat təminatı (hardware) ilə proqram təminatı (software) arasında təməl körpü funksiyasını yerinə yetirir. Kernel olmadan əməliyyat sistemi yararsızdır, çünki kernel sistemin bütün resurslarını — prosessor vaxtı, yaddaş, giriş-çıxış cihazları və digər hardware komponentlərini — mərkəzləşdirilmiş şəkildə idarə edir və paylayır.
+
+        Kernelin əsas vəzifəsi, müxtəlif proqramların eyni zamanda kompüterdə problemsiz və təhlükəsiz işləməsini təmin etməkdir. Bunun üçün kernel aparat səviyyəsində idarəetmə həyata keçirir: o, proseslərin işləmə vaxtını balanslaşdırır (prosesslərin planlaşdırılması/scheduling), yaddaşın düzgün bölüşdürülməsini təmin edir, diskə və digər cihazlara giriş-çıxış əməliyyatlarını idarə edir, həmçinin sistemin təhlükəsizliyini və sabitliyini qoruyur.
+        
+        Texniki baxımdan kernel ən yüksək səlahiyyətlə (privilege level, ring 0) işləyir. Bu o deməkdir ki, kernel proqramları aparatın bütün imkanlarına tam girişə malikdir və sistemin təhlükəsizliyini təmin etmək üçün xüsusi qoruma mexanizmləri tətbiq edir. İstifadəçi səviyyəsində işləyən proqramlar isə kernel vasitəsilə hardware resurslarına çatır, kernel onların əməliyyatlarını sinxronlaşdırır və qarşılıqlı ziddiyyətlərin qarşısını alır.
+        
+        Kernel olmadan, kompüterdə eyni vaxtda bir neçə proqramın effektiv işləməsi, sistem resurslarının düzgün idarə olunması, cihazlarla əlaqənin qurulması və əməliyyat sisteminin əsas funksiyalarının icrası mümkün olmazdı. Ona görə də kernel əməliyyat sisteminin ürəyi və beyni sayılır.
+    </p>
+   
+
+    <h2>⚙️ Kernelin əsas funksiyaları</h2>
+
+    <ul>
+      <li>
+        <strong>Prosessor idarəsi:</strong>
+        <p>Kernel prosessorun vaxtını müxtəlif proseslər və ipliklər (thread) arasında ədalətli və səmərəli şəkildə paylayır. O, proseslərin icrasını planlaşdırır (scheduling), yəni hansı prosesin nə vaxt və nə qədər işləyəcəyinə qərar verir. Kernel bunun üçün müxtəlif algoritmlərdən istifadə edir, məsələn:</p>
+        <ul>
+          <li>Round Robin – proseslərə bərabər vaxt verilir.</li>
+          <li>Priority Scheduling – öncəlik dərəcəsinə görə.</li>
+          <li>Multi-level Feedback Queue – prosesləri fərqli növbələrə bölür və onları optimallaşdırır.</li>
+        </ul>
+        <p>Kernel həmçinin proseslər arasında sürətli keçid (context switch) edir, bu da eyni vaxtda çoxlu işlərin aparılmasını — multitasking funksiyasını təmin edir.</p>
+      </li>
+    
+      <li>
+        <strong>Yaddaş idarəsi:</strong>
+        <p>Kernel kompüterin yaddaşını (RAM və virtual yaddaş) idarə edir. Hər prosesə öz unikal yaddaş sahəsi verilir ki, proseslər bir-birinin yaddaşına müdaxilə etməsin. Kernel yaddaşın bölünməsi və səhifələmə (paging) kimi üsullarla yaddaşdan səmərəli istifadəni təmin edir.</p>
+        <p>Əgər RAM dolursa, kernel yaddaşın bir hissəsini diskdə saxlayır (swap) və bu sayədə sistemin dayanmadan işləməsinə imkan verir.</p>
+      </li>
+    
+      <li>
+        <strong>Fayl sistemi idarəsi:</strong>
+        <p>Kernel faylların və qovluqların idarəsini həyata keçirir. O, məlumatların disklərdə necə saxlanması, oxunması və yazılması üçün xüsusi qaydalar və metodlar təqdim edir. Kernel müxtəlif fayl sistemlərini dəstəkləyir, məsələn, NTFS, EXT4, FAT32 və s.</p>
+        <p>Faylların yaradılması, silinməsi, dəyişdirilməsi və icazələrin təyin edilməsi kimi əməliyyatlar kernel tərəfindən təhlükəsiz və ardıcıl şəkildə idarə olunur.</p>
+      </li>
+    
+      <li>
+        <strong>Cihaz sürücüləri:</strong>
+        <p>Kernel kompüterdəki bütün aparat cihazları ilə əlaqəni təmin etmək üçün cihaz sürücülərindən istifadə edir. Hər bir aparatın özünəməxsus sürücüsü olur ki, kernel vasitəsilə həmin aparatın funksiyaları idarə olunsun.</p>
+        <p>Misal üçün, video kart, şəbəkə adapteri, printer kimi cihazların işi sürücülər vasitəsilə kernelə inteqrasiya olunur.</p>
+      </li>
+    
+      <li>
+        <strong>Giriş-çıxış əməliyyatları:</strong>
+        <p>Kernel klaviatura, siçan, printer və digər periferik cihazlarla məlumat mübadiləsini idarə edir. O, cihazlardan gələn məlumatları proqramlara çatdırır və əksinə, proqramlardan gələn əmrləri cihazlara göndərir.</p>
+        <p>Kernel həmçinin bu əməliyyatların sinxronizasiyasını və prioritetləşdirilməsini həyata keçir ki, sistem stabil və sürətli işləsin.</p>
+      </li>
+    
+      <li>
+        <strong>Təhlükəsizlik və icazələr:</strong>
+        <p>Kernel sistemin təhlükəsizliyini təmin edir. O, istifadəçilərin və proqramların sistem resurslarına çıxışını məhdudlaşdırır və qoruyur.</p>
+        <p>Kernel müxtəlif istifadəçi səviyyələri, hüquqlar və icazələr sistemi vasitəsilə resursların müdafiəsini həyata keçirir. Həmçinin, proseslər arasında izolyasiya yaradır ki, bir proqram digərinin yaddaşına və resurslarına müdaxilə edə bilməsin.</p>
+        <p>Əlavə olaraq, kernel təhlükəsizlik protokolları və audit mexanizmləri tətbiq edir, zərərli proqramların sistemə daxil olmasının qarşısını almağa kömək edir.</p>
+      </li>
+    </ul>
+    
+
+    <h2>💡 Kernel növləri</h2>
+<p>Əməliyyat sistemlərində kernelin müxtəlif arxitektura və dizayn yanaşmaları mövcuddur. Hər bir kernel növü sistemin performansı, stabilliyi, təhlükəsizliyi və genişlənə bilmə qabiliyyəti baxımından fərqli üstünlüklərə və çatışmazlıqlara malikdir. Aşağıda kernel növlərinin əsas kateqoriyaları və onların detallı izahı verilmişdir:</p>
+
+<ul>
+  <li>
+    <strong>Monolitik Kernel:</strong> 
+    <p>Monolitik kernel bütün əsas əməliyyat sistemi funksiyalarını, o cümlədən proses idarəetməsi, yaddaş idarəsi, cihaz sürücüləri və fayl sistemi idarəsini böyük tək bir proqram daxilində icra edir. Bu kernel növü bütün komponentləri bir yerdə saxlayır və onlar bir-biri ilə çox sıx əlaqədə işləyir.</p>
+    <p><em>Üstünlükləri:</em> 
+      <ul>
+        <li>Yüksək performans — bütün modullar eyni yaddaş məkanında çalışdığı üçün əlaqə sürətlidir.</li>
+        <li>Geniş aparat dəstəyi — çox sayda cihaz sürücüsü kernel daxilində birbaşa idarə olunur.</li>
+      </ul>
+    </p>
+    <p><em>Çatışmazlıqları:</em> 
+      <ul>
+        <li>Stabilik riskləri — bir moduldakı səhv bütün kernelin çöküşünə səbəb ola bilər.</li>
+        <li>Mürəkkəblik — kernelin böyük və kompleks olması onu inkişaf etdirməyi və saxlamanı çətinləşdirir.</li>
+      </ul>
+    </p>
+    <p><em>Misal:</em> Linux kernel, Unix kimi klassik əməliyyat sistemlərinin kernel dizaynı monolitikdir.</p>
+  </li>
+
+  <li>
+    <strong>Microkernel:</strong> 
+    <p>Microkernel dizaynında yalnız ən zəruri və əsas funksiyalar kernel səviyyəsində işləyir — məsələn, proseslərarası kommunikasiya (IPC), minimal yaddaş idarəsi və əsas planlaşdırma mexanizmləri. Digər funksiyalar, o cümlədən cihaz sürücüləri, fayl sistemi və şəbəkə xidmətləri kimi modullar isə kernel xaricində, istifadəçi səviyyəsində ayrıca xidmətlər kimi işləyir.</p>
+    <p><em>Üstünlükləri:</em>
+      <ul>
+        <li>Yüksək stabillik və təhlükəsizlik — çünki xidmətlər ayrı-ayrı proseslərdə işləyir və birindəki problem bütün sistemə yayılmır.</li>
+        <li>Daha asan genişlənmə və yenilənmə — kernel minimal olduğundan, əlavə xidmətlərin dəyişdirilməsi kernelə təsir etmədən həyata keçirilə bilər.</li>
+      </ul>
+    </p>
+    <p><em>Çatışmazlıqları:</em>
+      <ul>
+        <li>Performans itkisi — istifadəçi səviyyəsindəki modullarla kernel arasında çoxlu kontekst dəyişməsi və IPC çağırışları sistemin sürətinə təsir edə bilər.</li>
+        <li>İdarəetmənin mürəkkəbliyi — xidmətlər arasında əlaqə və sinxronizasiyanın yüksək səviyyədə koordinasiyası tələb olunur.</li>
+      </ul>
+    </p>
+    <p><em>Misal:</em> Minix, QNX, HURD kimi əməliyyat sistemləri microkernel arxitekturasına əsaslanır.</p>
+  </li>
+
+  <li>
+    <strong>Hybrid Kernel:</strong> 
+    <p>Hybrid kernel yanaşması monolitik və microkernel arxitekturalarının elementlərini birləşdirir. Bu kernel növü əsas funksiyaları kernel səviyyəsində saxlayır, lakin bəzi xidmətləri istifadəçi səviyyəsinə çıxararaq stabillik və performans arasında kompromis yaradır.</p>
+    <p><em>Üstünlükləri:</em>
+      <ul>
+        <li>Monolitik kernelin yüksək performansını saxlayır.</li>
+        <li>Microkernelin modularlığını və stabilliyini qismən təmin edir.</li>
+        <li>Geniş aparat və proqram təminatı dəstəyi mövcuddur.</li>
+      </ul>
+    </p>
+    <p><em>Çatışmazlıqları:</em>
+      <ul>
+        <li>Həm microkernel, həm də monolitik kernelin bəzi problemlərini daşıya bilər.</li>
+        <li>Kernelin həcmi və mürəkkəbliyi nisbətən yüksəkdir.</li>
+      </ul>
+    </p>
+    <p><em>Misal:</em> Windows NT kernel, macOS XNU kernel bu arxitekturaya misaldır.</p>
+  </li>
+
+  <li>
+    <strong>Exokernel:</strong>
+    <p>Exokernel kernel dizaynında sistem resurslarının idarəetməsi minimal səviyyədə olur və əsas məqsəd maksimum çeviklik təmin etməkdir. Bu yanaşmada kernel aparat resurslarının paylaşdırılmasını sadə və az müdaxiləli şəkildə həyata keçirir, yüksək səviyyəli sistem xidmətləri isə istifadəçi səviyyəsində işləyir.</p>
+    <p><em>Üstünlükləri:</em>
+      <ul>
+        <li>Resurs idarəetməsində maksimum çeviklik və istifadəçi proqramlarına geniş nəzarət imkanı.</li>
+        <li>Az kernel overhead — yəni kernelin özü az resurs istifadə edir.</li>
+      </ul>
+    </p>
+    <p><em>Çatışmazlıqları:</em>
+      <ul>
+        <li>Çox mürəkkəb proqram təminatı yazılması tələb olunur, çünki yüksək səviyyəli idarəetmə modulunu proqram təminatı təmin etməlidir.</li>
+        <li>Geniş kommersiya və istehlak sistemlərində geniş yayılmayıb, daha çox araşdırma və akademik məqsədlərlə istifadə olunur.</li>
+      </ul>
+    </p>
+    <p><em>Misal:</em> Exokernel dizaynı ilk dəfə MIT tərəfindən araşdırılmış və eksperimental əməliyyat sistemlərində tətbiq olunmuşdur.</p>
+  </li>
+</ul>
+
+
+<h2>🔧 Kernelin iş prinsipi</h2>
+
+<p>
+  Kernel kompüterin ən əsas və mərkəzi proqram komponentidir və əməliyyat sisteminin “ürəyi” hesab olunur. Digər proqramlardan fərqli olaraq, kernel yüksək səviyyəli hüquqlarla — ring 0 rejimində işləyir. Bu, ona aparat vasitələrinə (CPU, yaddaş, cihazlar) tam və sərbəst çıxış imkanı verir. Ring 0 rejimi ən aşağı səviyyədir və sistemin kritik əməliyyatları məhz burada icra olunur.
+</p>
+
+<p>
+  İstifadəçi səviyyəsində çalışan proqramlar (məsələn, brauzer, redaktor, oyunlar) birbaşa aparatla işləyə bilmirlər. Onlar kernel vasitəsilə aparat resurslarına çıxış əldə edir. Bu çıxış kernelin xüsusi interfeysləri — sistem çağırışları (system calls) vasitəsilə baş verir. Proqram sistem çağırışı ilə kernelə müraciət edir, kernel isə əməliyyatın yerinə yetirilməsini təmin edir və nəticəni geri qaytarır.
+</p>
+
+<p>
+  Kernel həmçinin prosessor vaxtını proseslər və ipliklər arasında bölür (prosessor idarəsi). Bu zaman kernel planlaşdırma algoritmlərindən istifadə edir və çoxlu proseslərin eyni vaxtda işləməsi üçün kontekst dəyişmələrini (context switches) həyata keçirir. Bu, istifadəçi üçün paralel işləmə kimi görünür.
+</p>
+
+<p>
+  Yaddaşın idarəsi kernelin ən vacib funksiyalarından biridir. Kernel proseslər üçün virtual yaddaş məkanları yaradır və yaddaşın qorunmasını təmin edir. Hər proses öz yaddaş sahəsinə sahibdir və kernel vasitəsilə digər proseslərin yaddaşına müdaxilə etmək mümkün deyil. Kernel səhifələmə (paging) və bölmə (segmentation) kimi texnikalardan istifadə edərək yaddaşın fiziki və virtual hissələrini idarə edir.
+</p>
+
+<p>
+  Kernel həmçinin sinxronizasiya mexanizmlərini təmin edir ki, bu da bir neçə prosesin eyni vaxtda kritik resurslara (məsələn, fayl və ya cihaz) zidd olmadan çıxışını təmin edir. Mutex, semaphore və digər sinxronizasiya vasitələri kernel tərəfindən idarə olunur.
+</p>
+
+<p>
+  Giriş-çıxış əməliyyatlarında kernel cihaz sürücüləri vasitəsilə periferik qurğuları idarə edir. Kernel bu əməliyyatların təhlükəsiz, ardıcıl və effektiv aparılmasını təmin edir, həmçinin bu proseslərin prioritetləşdirilməsinə nəzarət edir ki, sistem dayanıqlı işləsin.
+</p>
+
+<p>
+  Qısaca desək, kernel əməliyyat sisteminin mərkəzi idarəedicisi kimi istifadəçi proqramları ilə aparat arasında körpü rolunu oynayır. Onun iş prinsipi — yüksək səlahiyyətlərlə işləyib, resursları bölüşdürmək, təhlükəsizliyi qorumaq və sistemin sabitliyini təmin etməkdən ibarətdir.
+</p>
+
+
+    <h2>📋 Sadə kernel modulu nümunəsi (Linux)</h2>
+    <div class="code-block">
+<pre>
+#include &lt;linux/module.h&gt;
+#include &lt;linux/kernel.h&gt;
+
+int init_module(void) {
+    printk(KERN_INFO "Kernel modulu yükləndi!\n");
+    return 0;
+}
+
+void cleanup_module(void) {
+    printk(KERN_INFO "Kernel modulu çıxarıldı!\n");
+}
+
+MODULE_LICENSE("GPL");
+</pre>
+    </div>
+    <p>
+      Bu sadə Linux kernel modulu nümunəsi yüklənərkən və çıxarılarkən mesajlar göstərir. Kernel modulları kernelə əlavə funksionallıq əlavə etməyə imkan verir.
+    </p>
+
+    <h2>⚠️ Kernel ilə əlaqəli təhlükəsizlik məsələləri</h2>
+    <p>
+      Kernel sistemin ən əsas və həssas hissəsidir. Onun zəiflikləri bütün sistemi təhlükə altına sala bilər. Buna görə kernelin kodu ciddi yoxlanılır və təhlükəsizlik patch-ləri tez-tez tətbiq olunur.
+      Zərərli proqramlar (rootkitlər) kernel səviyyəsində işləyərək sistemə gizli nəzarət edə bilər, buna görə kernel modullarının etibarlı mənbələrdən olması çox vacibdir.
+    </p>
+
+    <h2>🚀 Nəticə</h2>
+    <p>
+      Kernel, əməliyyat sisteminin ürəyi kimi işləyir və kompüterin bütün resurslarını idarə edir. Onun düzgün işləməsi sistemin sabitliyi, təhlükəsizliyi və performansı üçün həyati əhəmiyyət daşıyır. Kernel arxitekturası və işləmə prinsiplərini anlamaq, əməliyyat sistemi və sistem proqramlaşdırması sahəsində dərin biliklər əldə etmək üçün vacibdir.
+    </p>
+
+    <p><a href="index.html">← Geri Qayıt</a></p>
+  </div>
+</body>
+</html>
